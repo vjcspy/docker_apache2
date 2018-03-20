@@ -10,7 +10,7 @@ Pull the latest stable version from the [Docker Hub Registry]
 
 After building the image, run the container.
 ```
-docker run --name apache2-php7 -v ~/path/to/code:/var/www -d -p [host-port]:80 francarmona/docker-ubuntu16-apache2-php7
+docker run --name apache2-php7 -v ~/path/to/code:/var/www -d -p [host-port]:80 vjcspy/apache2-php7
 ```
 Browse to [http://localhost:[host-port]](http://localhost:[host-port]) to view your app.
 
@@ -21,7 +21,7 @@ Some cases will be necessary to create a new image using this one as the base, f
 Create a Dockerfile with following content and then build the image.
 
 ```Dockerfile
-FROM francarmona/docker-ubuntu16-apache2-php7
+FROM vjcspy/apache2-php7
 
 MAINTAINER Khoi Le <mr.vjcspy@gmail.com>
 
@@ -126,6 +126,8 @@ xdebug.remote_host=10.254.254.254
   networks:
       back-tier:
 ```
+
+![](https://i.imgur.com/woXFr5y.png)
  
 ## Out of the box
 
