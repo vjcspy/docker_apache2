@@ -41,6 +41,9 @@ RUN phpenmod mcrypt
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+# openssh-server
+
+
 # Update the default apache site with the config we created.
 ADD config/apache/apache-virtual-hosts.conf /etc/apache2/sites-enabled/000-default.conf
 ADD config/apache/apache2.conf /etc/apache2/apache2.conf
