@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Khoi Le <mr.vjcspy@gmail.com>
 
 # Environments vars
@@ -62,7 +62,7 @@ ADD config/apache/ports.conf /etc/apache2/ports.conf
 ADD config/apache/envvars /etc/apache2/envvars
 
 # Update php.ini
-ADD config/php/php.conf /etc/php/7.0/apache2/php.ini
+ADD config/php/php.conf /etc/php/7.2/apache2/php.ini
 
 # Init
 ADD init.sh /init.sh
