@@ -1,5 +1,5 @@
-# docker-ubuntu16-apache2-php7
-A docker image based on Ubuntu 16.04 with Apache2 + PHP 7.0 + XDebug. Fully support magento2, laravel, symfony,etc ...
+# docker-ubuntu18-apache2-php7.2
+A docker image based on Ubuntu 18.04 with Apache2 + PHP 7.2 + XDebug. Fully support magento2, laravel, symfony,etc ...
 
 ## Pull the image
 
