@@ -9,30 +9,26 @@ RUN apt-get -y upgrade
 
 # Packages installation
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --fix-missing install apache2 \
-      php \
-      php-cli \
-      php-bcmath \
-      php-bz2 \
-      php-bz2 \
-      php-common \
-      php-intl \
-      php-gd \
-      php-json \
-      php-mbstring \
-      php-xml \
-      php-mysql \
-      php-xsl \
-      php-zip \
-      php-soap \
-      php-pear \
-      php-mcrypt \
+      php7.2 \
+      php7.2-cli \
+      php7.2-bcmath \
+      php7.2-bz2 \
+      php7.2-common \
+      php7.2-intl \
+      php7.2-gd \
+      php7.2-json \
+      php7.2-mbstring \
+      php7.2-xml \
+      php7.2-mysql \
+      php7.2-xsl \
+      php7.2-zip \
+      php7.2-soap \
       libapache2-mod-php \
       curl \
-      php-curl \
+      php7.2-curl \
       apt-transport-https \
       nano \
-      php-xdebug \
-      lynx-cur
+      php7.2-xdebug
 
 RUN a2enmod rewrite
 RUN phpenmod mcrypt
