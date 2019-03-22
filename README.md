@@ -51,17 +51,20 @@ ADD config/apache/apache2.conf /etc/apache2/apache2.conf
 ## Xdebug Configuration
 ```
 # php.ini
-xdebug.default_enable=1
+xdebug.profiler_enable = 0
 xdebug.remote_enable=1
-xdebug.remote_handler=dbgp
-; port 9000 is used by php-fpm
+xdebug.remote_host=docker.for.mac.localhost
 xdebug.remote_port=9000
-xdebug.remote_autostart=1
-; no need for remote host
-xdebug.remote_connect_back=1
-xdebug.idekey="PHPSTORM"
+xdebug.remote_handler="dbgp"
+; no need for connect back since you defined host ip
+;xdebug.remote_connect_back=1
+;xdebug.idekey = "IDEA_DEBUG"
+;xdebug.remote_log = /var/www/src/xdebug.log
 ```
 
+
+
+##### Try this way if you can not connect by ip:
 
 It should work fine on Linux boxes, but I found some issues trying to run it in Mac OS. I will show you some changes I tried that worked on both OS.
 
@@ -70,6 +73,7 @@ After some tries likes ssh bridge networks, config for remote connect back but a
 In Mac:
 
 sudo ifconfig en0 alias 10.254.254.254 255.255.255.0
+
 In Linux:
 
 sudo ip addr add 10.254.254.254/24 brd + dev eth0 label eth0:1
@@ -97,7 +101,6 @@ xdebug.remote_host=10.254.254.254
               - "9000"
           ports:
               - "80:80"
-#              - "8999:9000"
           networks:
               - back-tier
           volumes:
