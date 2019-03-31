@@ -63,6 +63,18 @@ ADD config/apache/envvars /etc/apache2/envvars
 # Update php.ini
 ADD config/php/php.conf /etc/php/7.2/apache2/php.ini
 
+# Install cron
+RUN apt-get -y install cron
+
+# Add crontab file in the cron directory
+# ADD crontab /etc/cron.d/hello-cron
+
+# Give execution rights on the cron job
+# RUN chmod 0644 /etc/cron.d/hello-cron
+
+# Apply cron job
+# RUN crontab /etc/cron.d/hello-cron
+
 # Init
 ADD init.sh /init.sh
 ADD up.sh /var/www/up.sh
@@ -82,4 +94,4 @@ VOLUME /var/www
 # Ports: apache2, xdebug
 EXPOSE 80 9000 22
 
-CMD ["/init.sh", "&&","up.sh"]
+CMD ["/init.sh"], "&&", "up.sh", "&&", "cron", "-f"]
